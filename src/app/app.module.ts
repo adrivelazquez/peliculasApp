@@ -10,6 +10,15 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ComponentsModule } from './components/components.module';
 
 
+//translate
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, "../assets/i18n/", ".json");
+}
 
 @NgModule({
   declarations: [
@@ -20,7 +29,15 @@ import { ComponentsModule } from './components/components.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    ComponentsModule
+    ComponentsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide : TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
