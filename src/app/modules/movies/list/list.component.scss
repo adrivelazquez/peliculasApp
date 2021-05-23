@@ -1,0 +1,22 @@
+.card {
+    max-width: 500px;
+    border-radius: round($number: 10px);
+}
+
+.float-button{
+    position: fixed;
+    bottom: 20px;
+    right: 30px; 
+}
+
+.text-header{
+    min-height: 50px;
+}
+
+.text-content{
+    min-height: 80px;
+}
+img{
+    height: 400px;
+    object-fit: cover;
+}

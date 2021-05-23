@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4" *ngFor="let movie of movies">
+      <mat-card class="card m-2" >
+        <mat-card-header class="text-header">
+          <mat-card-title>{{movie.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="movie.poster ? movie.poster : defaultImg" [alt]="movie.title">
+        <mat-card-content class="text-content">
+          <mat-chip-list aria-label="genre">
+            <mat-chip color="primary" selected *ngFor="let genre of movie.genre">#{{ genre }}</mat-chip>
+          </mat-chip-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="example-button-container">
+    <button class="float-button" mat-fab color="primary" aria-label="Example icon button with a bookmark icon">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
